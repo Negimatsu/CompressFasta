@@ -21,9 +21,9 @@ public class Sequence {
 		HashMap<String, ArrayList<Boolean>> mapping = map.getMap();
 		
 		for (Character ch : seq.toCharArray()){
-			if (ch.equals('\n') ){
-				continue;
-			}
+//			if (ch.equals('\n') ){
+//				continue;
+//			}
 			seqBi.addAll(mapping.get(ch));
 		}
 	}

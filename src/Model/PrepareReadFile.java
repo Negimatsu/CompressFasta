@@ -31,7 +31,8 @@ public class PrepareReadFile extends Component {
 
 		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
 		fileChooser.setDialogTitle("Select " + typeText);
-		//fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		fileChooser.setFileSelectionMode(JFileChooser.OPEN_DIALOG);
 
 		int result = fileChooser.showSaveDialog(this);	
 		if (result == JFileChooser.APPROVE_OPTION) {
