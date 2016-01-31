@@ -61,10 +61,12 @@ public class PrepareWriteFile {
 				String str= entry.getKey();
 				byte[] keyData;
 
-				keyData = str.getBytes("UTF-8");
+				keyData = str.getBytes();
 
 				os.write(keyData);
-				for (Boolean seqCh : entry.getValue().getSeqBi()){
+				Sequence writeSeq = entry.getValue();
+				writeSeq.convertToBinary();
+				for (Boolean seqCh : writeSeq.getSeqBi()){
 					os.writeBoolean(seqCh);
 				}
 			} catch (UnsupportedEncodingException e) {

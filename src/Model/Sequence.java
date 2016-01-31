@@ -24,7 +24,9 @@ public class Sequence {
 //			if (ch.equals('\n') ){
 //				continue;
 //			}
-			seqBi.addAll(mapping.get(ch));
+			if (mapping.containsKey(ch.toString())){
+				seqBi.addAll(mapping.get(ch.toString()));
+			}
 		}
 	}
 

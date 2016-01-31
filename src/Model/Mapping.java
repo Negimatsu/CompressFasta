@@ -16,7 +16,7 @@ public class Mapping {
 		return binaryGene;
 	}
 
-	public void setBinaryGene(ArrayList<Boolean> binaryGene) {
+	private void setBinaryGene(ArrayList<Boolean> binaryGene) {
 		this.binaryGene = binaryGene;
 	}
 
