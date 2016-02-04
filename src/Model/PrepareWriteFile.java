@@ -3,6 +3,8 @@ package Model;
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
+//import java.nio.charset.*;
+
 
 public class PrepareWriteFile {
 	private final int ITERATIONS = 5;
@@ -50,25 +52,57 @@ public class PrepareWriteFile {
 		this.data = data;
 		writeFile();
 	}
+	
+//	private void writeFileChar(){
+//		
+//		Charset UTF8 = Charset.forName("UTF-8");
+//		
+//		DataOutputStream os = new DataOutputStream(new BufferedOutputStream(fileOutS));
+//
+//		for (Entry<String, Sequence> entry : data.entrySet()){
+//
+//			try {
+//				String str= entry.getKey();
+//				os.writeBytes(str);
+//
+//				//os.write(keyData);
+//				Sequence writeSeq = entry.getValue();
+//				writeSeq.convertSequence();
+//				
+//				ArrayList<Byte> valueData = writeSeq.getCompleteSeq();
+//				for (byte val : valueData){
+//					os.writeByte(val);
+//				}
+//				
+//			} catch (UnsupportedEncodingException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 
 	private void writeFile() {
-		DataOutputStream os = new DataOutputStream(fileOutS);
+		DataOutputStream os = new DataOutputStream(new BufferedOutputStream(fileOutS));
 
 		for (Entry<String, Sequence> entry : data.entrySet()){
 
 			try {
 				String str= entry.getKey();
-				byte[] keyData;
+				os.writeBytes(str);
 
-				keyData = str.getBytes();
-
-				os.write(keyData);
+				//os.write(keyData);
 				Sequence writeSeq = entry.getValue();
-				writeSeq.convertToBinary();
-				for (Boolean seqCh : writeSeq.getSeqBi()){
-					os.writeBoolean(seqCh);
+				writeSeq.convertSequence();
+				
+				ArrayList<Integer> valueData = writeSeq.getCompleteSeq();
+				for (int val : valueData){
+					os.write(val);
 				}
+				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -77,8 +111,9 @@ public class PrepareWriteFile {
 				e.printStackTrace();
 			}
 		}
-
 	}
+
+	
 
 
 

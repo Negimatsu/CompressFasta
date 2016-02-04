@@ -18,7 +18,6 @@ public class Main {
 		
 		dataFasta = rd.getdataFasta();
 		
-
 		PrepareWriteFile writeFile = new PrepareWriteFile("Test.ongkrab", dataFasta);
 		System.out.println("COmplete");
 			

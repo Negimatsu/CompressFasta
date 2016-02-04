@@ -61,7 +61,7 @@ public class ReadData {
 					
 					headerSeq = line;
 					
-					System.out.println("add sequence to map" + headerSeq + "\nseq is" + seqStr);
+					//System.out.println("add sequence to map" + headerSeq + "\nseq is" + seqStr);
 					headerSeq = null;
 					seqStr = "";
 					flag = 1;
